@@ -25,12 +25,12 @@ public class ProductService implements IProductService{
         // if yes, set it as the new product category
         // of no, then save it as a new category
 
-        Category category = Optional.ofNullable(categoryRepository.findByName(request.getCategory().getName()))
+        Category category = Optional.ofNullable(categoryRepository.findByName(request.getCategory()))
                 .orElseGet(() -> {
-                    Category newCategory = new Category((request.getCategory().getName()));
+                    Category newCategory = new Category();
+                    newCategory.setName(request.getCategory());
                     return categoryRepository.save(newCategory);
                 });
-        request.setCategory(category);
         return productRepository.save(createProduct(request, category));
     }
 
@@ -102,7 +102,7 @@ public class ProductService implements IProductService{
 
     @Override
     public List<Product> getProductByName(String name) {
-        return productRepository.findByName(name);
+        return productRepository.findByNameIgnoreCase(name);
     }
 
     @Override
