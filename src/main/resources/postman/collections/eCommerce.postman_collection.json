@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "8ca0153c-210c-4ff2-8a73-2a747ffac920",
+		"name": "eCommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30732478"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/products/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Add product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Pokemon\",\r\n    \"brand\" : \"Nintendo\",\r\n    \"price\" : \"60\",\r\n    \"inventory\" : \"40\",\r\n    \"description\" : \"pokemon videogame\",\r\n    \"category\" : \"Videogame\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:4800/api/v1/products/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4800/api/v1/products/by/brand?brandName=Apple",
+							"host": [
+								"localhost"
+							],
+							"port": "4800",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"by",
+								"brand"
+							],
+							"query": [
+								{
+									"key": "brandName",
+									"value": "Apple"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/products/by/category/Electronics"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by brand and name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4800/api/v1/products/by/brand-and-name?brandName=Apple&productName=TV",
+							"host": [
+								"localhost"
+							],
+							"port": "4800",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"by",
+								"brand-and-name"
+							],
+							"query": [
+								{
+									"key": "brandName",
+									"value": "Apple"
+								},
+								{
+									"key": "productName",
+									"value": "TV"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4800/api/v1/products/by/name?name=watch",
+							"host": [
+								"localhost"
+							],
+							"port": "4800",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"by",
+								"name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "watch"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/products/product/3/get"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Ipod\",\r\n    \"brand\" : \"Apple\",\r\n    \"price\" : \"60\",\r\n    \"inventory\" : \"8\",\r\n    \"description\" : \"Music reporductor\",\r\n    \"category\" : \"Gadget\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:4800/api/v1/products/product/2/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:4800/api/v1/products/product/3/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "Upload image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "postman-cloud:///1ef86fd7-ea70-4e60-b285-089237fba063"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "postman-cloud:///1ef86fd7-f90a-4b10-a3e1-7fb6df0bb683"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4800/api/v1/images/upload?productId=4",
+							"host": [
+								"localhost"
+							],
+							"port": "4800",
+							"path": [
+								"api",
+								"v1",
+								"images",
+								"upload"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/images/image/download/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/categories/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Add category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Ebooks\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:4800/api/v1/categories/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Get category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/categories/category/1/get"
+					},
+					"response": []
+				},
+				{
+					"name": "Update category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Food\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:4800/api/v1/categories/category/4/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:4800/api/v1/categories/category/4/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CartItem",
+			"item": [
+				{
+					"name": "Add item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:4800/api/v1/cartItems/item/add?productId=4&quantity=2",
+							"host": [
+								"localhost"
+							],
+							"port": "4800",
+							"path": [
+								"api",
+								"v1",
+								"cartItems",
+								"item",
+								"add"
+							],
+							"query": [
+								{
+									"key": "cartId",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "productId",
+									"value": "4"
+								},
+								{
+									"key": "quantity",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:4800/api/v1/cartItems/cart/1/item/1/update?quantity=2",
+							"host": [
+								"localhost"
+							],
+							"port": "4800",
+							"path": [
+								"api",
+								"v1",
+								"cartItems",
+								"cart",
+								"1",
+								"item",
+								"1",
+								"update"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:4800/api/v1/cartItems/cart/1/item/1/remove"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/carts/1/my-cart"
+					},
+					"response": []
+				},
+				{
+					"name": "Get total price",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/carts/1/total-price"
+					},
+					"response": []
+				},
+				{
+					"name": "Clear cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:4800/api/v1/carts/1/clear"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/users/1/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Usuario\",\r\n    \"lastName\" : \"Prueba\",\r\n    \"email\" : \"usuarioprueba@email.com\",\r\n    \"password\" : \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:4800/api/v1/users/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Usuario\",\r\n    \"lastName\" : \"Modificado\",\r\n    \"email\" : \"usuarioprueba@email.com\",\r\n    \"password\" : \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:4800/api/v1/users/7/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:4800/api/v1/users/7/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:4800/api/v1/orders/order?userId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "4800",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"order"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/orders/1/order"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:4800/api/v1/orders/1/orders"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
